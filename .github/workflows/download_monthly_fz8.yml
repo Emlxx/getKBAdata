@@ -1,0 +1,34 @@
+name: Download monthly fz8 file
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 6 * *'
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Repo auschecken
+      uses: actions/checkout@v3
+
+    - name: Python einrichten
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Abhängigkeiten installieren
+      run: pip install requests
+
+    - name: Datei herunterladen
+      run: python download_file_of_last_month.py
+
+    - name: Dateien ins Repo committen (optional)
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add downloads/daten.xlsx
+        git commit -m "Monatliches Update der XLSX-Datei"
+        git push
+      continue-on-error: true
