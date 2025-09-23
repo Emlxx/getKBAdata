@@ -24,11 +24,12 @@ jobs:
     - name: Datei herunterladen
       run: python download_file_of_last_month.py
 
-    - name: Dateien ins Repo committen (optional)
+    - name: Dateien ins Repo committen
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git add downloads/daten.xlsx
+        git add downloads/
         git commit -m "Monatliches Update der XLSX-Datei"
         git push
+      continue-on-error: true
       continue-on-error: true
