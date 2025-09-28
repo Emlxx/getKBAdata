@@ -2,8 +2,6 @@ name: Download monthly fz8 file
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 0 6 * *'
 
 jobs:
   download:
@@ -24,7 +22,7 @@ jobs:
       run: pip install requests
 
     - name: Datei herunterladen
-      run: python download_file_of_last_month.py
+      run: python download_multiple_files_at_once.py
 
     - name: Dateien ins Repo committen
       run: |
