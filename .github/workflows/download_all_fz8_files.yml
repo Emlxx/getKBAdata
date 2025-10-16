@@ -1,4 +1,4 @@
-name: Download monthly fz8 file
+name: Download all fz8 files
 
 on:
   workflow_dispatch:
