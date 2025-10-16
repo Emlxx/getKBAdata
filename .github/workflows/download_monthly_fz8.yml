@@ -21,7 +21,7 @@ jobs:
         python-version: '3.11'
 
     - name: Abhängigkeiten installieren
-      run: pip install requests
+      run: pip install requests pandas
 
     - name: Datei herunterladen
       run: python download_file_of_last_month.py
