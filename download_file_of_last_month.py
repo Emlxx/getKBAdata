@@ -18,7 +18,7 @@ COLS = [
 
 def get_target_date() -> tuple[str, str]:
     """Liefert Jahr und Monat (1 Monat zurück)."""
-    target_date = datetime.now().replace(day=1) - timedelta(days=30)
+    target_date = datetime.now().replace(day=1) - timedelta(days=60)
     return str(target_date.year), f"{target_date.month:02d}"
 
 
